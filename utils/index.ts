@@ -52,11 +52,12 @@ const createPrompt = (
     return endent`
     You are an expert programmer in all programming languages. Translate the "${inputLanguage}" code to "${outputLanguage}" code. Do not include \`\`\`.
 
-    JavaScript code:
+    Here's the example code of Javascripts
     for (let i = 0; i < 10; i++) {
       console.log(i);
     }
 
+    Here's the example code of Python
     Python code:
     for i in range(10):
       print(i)
@@ -68,7 +69,6 @@ const createPrompt = (
     ${inputCode}
 
     Translate the above ${inputLanguage} code to ${outputLanguage} code.
-    Please note that the above JavaScript code is just an example, you can change it with any JavaScript code you want to translate to ${outputLanguage}. Also, I only want the result include the code, without any comment or text that's not in the programming language
 
     ${outputLanguage} code (no \`\`\`):
    `;
@@ -85,6 +85,7 @@ export const OpenAIStream = async (
 
   const system = { role: 'system', content: prompt };
 
+  console.log("system:", system);
   const res = await fetch(`https://api.groq.com/openai/v1/chat/completions`, {
     headers: {
       'Content-Type': 'application/json',
