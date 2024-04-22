@@ -13,7 +13,7 @@ export default function Home() {
   const [outputLanguage, setOutputLanguage] = useState<string>('Python');
   const [inputCode, setInputCode] = useState<string>('');
   const [outputCode, setOutputCode] = useState<string>('');
-  const [model] = useState<OpenAIModel>('mixtral-8x7b-32768');
+  const [model] = useState<OpenAIModel>('llama3-70b-8192');
   const [loading, setLoading] = useState<boolean>(false);
   const [hasTranslated, setHasTranslated] = useState<boolean>(false);
   const handleTranslate = async () => {

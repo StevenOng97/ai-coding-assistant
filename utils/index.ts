@@ -70,7 +70,7 @@ const createPrompt = (
 
     Translate the above ${inputLanguage} code to ${outputLanguage} code.
 
-    ${outputLanguage} code (no \`\`\`):
+    ${outputLanguage} code (no \`\`\` and additional text):
    `;
   }
 };
@@ -85,7 +85,6 @@ export const OpenAIStream = async (
 
   const system = { role: 'system', content: prompt };
 
-  console.log("system:", system);
   const res = await fetch(`https://api.groq.com/openai/v1/chat/completions`, {
     headers: {
       'Content-Type': 'application/json',
